@@ -1,0 +1,23 @@
+	.map_overlay {
+	    position: absolute;
+	    z-index: 3;
+	    top: 50px;
+	    right: 30px;
+	    width: 320px;
+	    padding: 0 25px;
+	    border-radius: 2px;
+	    box-shadow: 0 2px 1px rgba(0,0,0,0.3);
+	    background-color: rgba(255,255,255,0.85);
+	    text-align: center;
+	}
+	
+	.item_list, .item, .b_block {
+    	position: relative;
+	}
+	
+	.map_overlay .item .title {
+	    font-family: Arial;
+	    font-size: 20px;
+	    color: #2b2b2b;
+	    font-weight: normal;
+	}
