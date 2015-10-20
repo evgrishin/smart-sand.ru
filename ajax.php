@@ -27,11 +27,19 @@ $headers .= "Reply-To:";
 mail($to1,$email_subject,$email_body,$headers);
 mail($to2,$email_subject,$email_body,$headers);
 
-if ($subdomain != "test" || $host!='mh01')
+$s = true;
+if (trim($subdomain) == "test")
+	$s = false;
+if (trim($host)=="mh01")
+	$s = false;
+
+if ($s==true)
 {
 	$sms = "http://lk.open-sms.ru/multi.php?login=matras_house1&password=sms23Atdhfkz&message=new order: $name - $phone - product:$id &phones=79601652555&originator=DomMatrasov";
 	$result = file_get_contents($sms);
 }
 
-echo "Ваш заказ успешно отправлен!"; 
+echo "Ваш заказ успешно отправлен!";
+
+
 ?>

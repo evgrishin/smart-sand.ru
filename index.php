@@ -1,9 +1,40 @@
 ﻿<?php
 //require '../sslib/Product.php';
+
+$issubdomain = false;
 $domain = $_SERVER['HTTP_HOST'];
 $subdomain = current(explode('.', trim($_SERVER['HTTP_HOST']), 2));
 $phone = "+7(960)165-25-55";
 $mail = "";
+
+if( $subdomain == "nn")
+	$issubdomain = true;
+
+if ($issubdomain == true)
+{
+	$city1 = "г.Нижний Новгород";
+	$city2 = "Нижний Новгород";
+	$city3 = "в Нижний Новгороде";
+	$deliveryprice = "200 руб.";
+	$freeshiping = "2500";
+	$deliverybannerleft = '<div style="width:390px;height:200px;padding-top:20px;" class="img-thumbnail">
+						<a href="#contact" class="highlight">Посмотреть пункт самовывоза!
+						<img src="i/delivery.jpg" alt="Доставка"></a>
+					</div>';
+	$deliverybannerright = '<div style="width:390px;height:200px;padding-top:20px;" class="img-thumbnail">
+						<div class="text-center highlight"><h3>Доставим <strong>в среду бесплатно!!!</strong><h3></div>
+						<div class="text-center"><h4>при любой сумме заказа</h4></div>					
+					</div>';
+}else {
+	$city1 = "Доставка по России";
+	$city2 = "Доставка по России";
+	$city3 = "по России";
+	$deliveryprice = "зависит от города проживания.";
+	$freeshiping = "5000";
+	$deliverybannerleft = '';
+	$deliverybannerright = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +44,16 @@ $mail = "";
 	<meta name="language" content="ru"/>
 	
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Умный космический песок - Нижний Новгород">
-	<meta property="og:description" content="Космический песок в наличии с доставкой в Нижнем Новгороде - необычный материал для и игры, учебных процессов так и для терапевтических целей." />    
+	<meta property="og:title" content="Умный космический песок - <?=$city2?>">
+	<meta property="og:description" content="Космический песок в наличии с доставкой <?=$city3?> - необычный материал для и игры, учебных процессов так и для терапевтических целей.">    
 	<meta property="og:image" content="img/logo.png">
-	<meta property="og:site_name" content="Умный песок | Космический песок |Кинетический песок | Kinetic Sand | Живой песок | Live Sand | Нижний Новгород">    	
+	<meta property="og:site_name" content="Умный песок | Космический песок |Кинетический песок | Kinetic Sand | Живой песок | Live Sand | <?=$city2?>">    	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
-	<meta name="keywords" content="Космический песок, кинетический песок, развивающая игра, kinetic sand, waba fun, купить в Нижнем Новгороде, живой песок, live Sand, умный песок" />
-	<meta name="description" content="Космический песок в наличии с доставкой в Нижнем Новгороде - необычный материал для и игры, учебных процессов так и для терапевтических целей." />
+	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+	<meta name="keywords" content="Космический песок, кинетический песок, развивающая игра, kinetic sand, waba fun, купить <?=$city3?>, живой песок, live Sand, умный песок">
+	<meta name="description" content="Космический песок в наличии с доставкой <?=$city3?> - необычный материал для и игры, учебных процессов так и для терапевтических целей.">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<title>Умный космический кинетический песок - Нижний Новгород в наличии с доставкой!</title>
+		<title>Умный космический кинетический песок - <?=$city2?> песок в наличии!</title>
 		
 <!-- CSS Files -->
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -105,11 +136,9 @@ $mail = "";
   
 <body data-spy="scroll" data-target="#navbar-scroll">
 
-<!-- /.preloader -->
 <div id="preloader"></div>
 <div id="top"></div>
 
-<!-- /.parallax full screen background image -->
 <div class="fullscreen landing parallax" style="background-image:url('images/bg.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 	
 	<div class="overlay">
@@ -121,7 +150,7 @@ $mail = "";
 	
 						<!-- /.main title -->
 							<h2 class="wow fadeInLeft highlight" style="color:#d34a4a;">
-							г.Нижний Новгород - <span style="color:#00b121">песок в наличии!</span>
+							<?=$city1?> - <span style="color:#00b121">песок в наличии!</span>
 							</h2>
 	
 						<!-- /.header paragraph -->
@@ -175,7 +204,7 @@ $mail = "";
 				  <span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand site-name" href="#top"><?=$domain?></a><br>
-				<a href="#"><strong>г. Нижний Новгород</strong></a>
+				<a href="#"><strong><?=$city1?></strong></a>
 			  </div>
 			  <div class="navbar-left" style="padding-top:8px;">
 			  		<span><strong><i class="pe-7s-phone highlight"></i><a href="#callback" class="modalcb"> <?=$phone?></a></strong></span>
@@ -838,32 +867,26 @@ $mail = "";
 			<div class="row text-center">
 		
 			<!-- /.pricing title -->
-				<h2 class="wow fadeInLeft">Условия доставки в Нижнем новгороде</h2>
+				<h2 class="wow fadeInLeft">Условия доставки <?=$city3?></h2>
 				<div class="title-line wow fadeInRight"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<div class="wow fadeInUp">Стоимость доставки по Нижнему новгороду - 200 руб.</div>
+					<div class="wow fadeInUp">Стоимость доставки <?=$city3?> - <?=$deliveryprice?></div>
 				</div>
 			</div>
 			<div class="row text-center">
 				<div class="col-sm-4">
+					<?=$deliverybannerleft?>
+				</div>
+				<div class="col-sm-4">
 					<div style="width:390px;height:200px;padding-top:20px;" class="img-thumbnail">
-						<div class="text-center"><h3>Доставка от 2500 руб</h3></div>
+						<div class="text-center"><h3>Доставка от <?=$freeshiping?> руб</h3></div>
 						<div class="text-center highlight"><h4><strong>бесплатно</strong></h4></div>
 					</div>					
-				</div>
+				</div>				
 				<div class="col-sm-4">
-					<div style="width:390px;height:200px;padding-top:20px;" class="img-thumbnail">
-						<a href="#contact" class="highlight">Посмотреть пункт самовывоза!
-						<img src="i/delivery.jpg" alt="Доставка"></a>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div style="width:390px;height:200px;padding-top:20px;" class="img-thumbnail">
-						<div class="text-center highlight"><h3>Доставим <strong>в среду бесплатно!!!</strong><h3></div>
-						<div class="text-center"><h4>при любой сумме заказа</h4></div>					
-					</div>
+					<?=$deliverybannerright?>
 				</div>
 			</div>	
 		</div>	
@@ -972,7 +995,7 @@ $mail = "";
 				
 					<!-- /.address and contact -->
 					<div class="col-sm-5 contact-left wow fadeInUp">
-						<h2><span class="highlight"></span>Адрес самовывоза:</h2>
+						<h2><span class="highlight"></span>Контакты:</h2>
 							<ul class="ul-address">
 							<li><i class="pe-7s-map-marker"></i>г. Нижний Новгород</br>
 							ул. Белинского 32
